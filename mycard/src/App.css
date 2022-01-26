@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  height: 100%;
+  width: 235px;
+  margin: auto;
+  background: #1a1b21;
+  border-radius: 10px 10px 0px 0px;
+}
+
+img {
+  max-width: 235px;
+  height: auto;
+  border-radius: 10px 10px 0px 0px;
+}

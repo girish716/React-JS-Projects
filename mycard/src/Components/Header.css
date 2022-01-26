@@ -1,0 +1,17 @@
+.MainHeader {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 0;
+  color: #ffffff;
+}
+
+.SubHeader1 {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12.8px;
+  line-height: 15px;
+  margin-top: 0;
+  color: #f3bf99;
+}

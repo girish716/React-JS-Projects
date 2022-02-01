@@ -1,0 +1,58 @@
+.Location {
+  display: flex;
+  gap: 19px;
+  margin-left: 40px;
+  cursor: default;
+  margin-right: 30px;
+  margin-bottom: 36px;
+}
+.Location-image {
+  width: 125px;
+  height: 168px;
+  border-radius: 5px;
+}
+.Details-Container {
+  max-height: 168px;
+  margin-top: 10px;
+}
+.Location-description {
+  font-size: 10px;
+}
+h1 {
+  font-size: 25px;
+  margin-top: 0px;
+}
+.Location-mapContainer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 12px;
+}
+.Location-mapContainer > p,
+a {
+  margin-bottom: 4px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-right: 10px;
+}
+.Location-mapContainer > a {
+  color: lightgray;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Location-description {
+  margin-top: 8px;
+  padding-top: 0px;
+}
+h4 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.icon {
+  color: #f55a5a;
+  font-size: 15px;
+}

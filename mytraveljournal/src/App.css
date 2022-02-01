@@ -1,0 +1,16 @@
+.App {
+}
+
+.Header {
+  display: flex;
+  height: 60px;
+  background-color: #f55a5a;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.globe {
+  height: 15px;
+  width: 15px;
+}

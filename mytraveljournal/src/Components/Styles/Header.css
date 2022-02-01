@@ -1,0 +1,14 @@
+.globe {
+  height: 30px;
+  width: 30px;
+  margin-right: 0;
+  font-size: 25px;
+}
+
+.Header {
+  display: flex;
+  font-size: 15px;
+  gap: 15px;
+  font-weight: 500;
+  margin-bottom: 45px;
+}

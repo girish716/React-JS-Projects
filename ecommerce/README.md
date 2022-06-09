@@ -4,23 +4,17 @@
 
 [Click here](https://ecommerce-girish.vercel.app) to load the app.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tech used
+1. Next JS (server side rendering), React JS
+2. Payments - Stripe
+3. Product management - Sanity
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Features
+1. Admin can manage (can be added, updated or removed) the products & banners by using Sanity dashboard.
+2. User can add the products to the cart by selcting the quantity.
+3. Products can be removed from the cart.
+4. payments can be made by using Stripe default checkout page.
+   for testing purpose use below details for card (original payments are not enabled yet)
+   Number : 4242 4242 4242 4242
+   CVV : 424
+   Date : 04/24

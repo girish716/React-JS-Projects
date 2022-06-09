@@ -10,7 +10,7 @@
 3. Product management - Sanity
 
 ### Features
-1. Admin can manage (can be added, updated or removed) the products & banners by using Sanity dashboard.
+1. Admin can manage (add, updat or remove) the products & banners by using Sanity dashboard.
 2. User can add the products to the cart by selcting the quantity.
 3. Products can be removed from the cart.
 4. payments can be made by using Stripe default checkout page.

@@ -2,7 +2,7 @@
 
 ## Ecommerce
 
-Open [ecommerce-girish.vercel.app](ecommerce-girish.vercel.app) with your browser to load the app.
+[Click here](https://ecommerce-girish.vercel.app) to load the app.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 

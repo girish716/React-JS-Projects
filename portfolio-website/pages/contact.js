@@ -6,7 +6,7 @@ import { OtherMediums } from '../components';
 import { UseSanityData } from '../context/SanityData';
 import { client } from '../lib/client';
 
-const contact = () => {
+const Contact = () => {
   const formRef = useRef(null)
   const {data} = UseSanityData()
   const {aboutData} = data
@@ -87,4 +87,4 @@ const contact = () => {
   )
 }
 
-export default contact
+export default Contact

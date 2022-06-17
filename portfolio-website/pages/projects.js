@@ -4,7 +4,7 @@ import { client } from '../lib/client'
 import 'animate.css'
 import { UseSanityData } from '../context/SanityData'
 
-const projects = () => {
+const Projects = () => {
   const {data} = UseSanityData()
   const {projects} = data
   const [projectsData, setProjectsData] = useState(projects)
@@ -33,4 +33,4 @@ const projects = () => {
 
 
 
-export default projects
+export default Projects

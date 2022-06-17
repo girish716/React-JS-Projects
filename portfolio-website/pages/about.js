@@ -3,7 +3,7 @@ import 'animate.css'
 import { client, urlFor } from '../lib/client'
 import { UseSanityData } from '../context/SanityData'
 
-const about = () => {
+const About = () => {
   const {data} = UseSanityData()
   const {aboutData} = data
   const [myData, setMyData] = useState(aboutData)
@@ -52,4 +52,4 @@ const about = () => {
 
 
 
-export default about
+export default About

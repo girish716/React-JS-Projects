@@ -75,8 +75,8 @@ const Sidebar = () => {
         <Link href='/projects'><p ref={projectsRef}  className='icon projects'><GoProject/></p></Link>
       </nav>
       <div className='social-media'>
-        <a href='mailto: girishchandra79179@gmail.com'><p className='icon git'><GrMail /></p></a>
-        <a href='https://www.linkedin.com/in/dama-girish-chandra/' target='_blank'><p className='icon linkedin'><AiFillLinkedin /></p></a>
+        <a href='mailto: girishchandra79179@gmail.com' target='_blank' rel="noreferrer"><p className='icon git'><GrMail /></p></a>
+        <a href='https://www.linkedin.com/in/dama-girish-chandra/' target='_blank' rel="noreferrer"><p className='icon linkedin'><AiFillLinkedin /></p></a>
       </div>
     </div>
   )

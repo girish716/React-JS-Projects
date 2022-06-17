@@ -13,6 +13,7 @@ const Product = ({data}) => {
           href={liveURL}
           target='_blank' 
           className='live'
+          rel="noreferrer"
           >
             <FaShareSquare className='link-icon'/>
           </a>
@@ -29,7 +30,7 @@ const Product = ({data}) => {
         <p className='github-icon'>
           <GrGithub/>
         </p>
-        <a href={sourceCode} target='_blank'>Source Code</a>
+        <a href={sourceCode} target='_blank' rel="noreferrer">Source Code</a>
       </div>
     </div>
   ) 

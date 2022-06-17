@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Project } from '../components'
 import { client } from '../lib/client'
 import 'animate.css'
-import { useSanityData } from '../context/SanityData'
+import { UseSanityData } from '../context/SanityData'
 
 const projects = () => {
-  const {data} = useSanityData()
+  const {data} = UseSanityData()
   const {projects} = data
   const [projectsData, setProjectsData] = useState(projects)
   

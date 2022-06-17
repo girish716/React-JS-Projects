@@ -5,13 +5,13 @@ import { client } from '../lib/client'
 import logoG from '../assets/logo-g.png'
 import 'animate.css'
 import {OtherMediums} from '../components'
-import { useSanityData } from '../context/SanityData'
+import { UseSanityData } from '../context/SanityData'
 
 
 const Home = ({aboutData, projects}) => {
   const heading = ['G','I','R','I','S','H']
   const { title } = aboutData
-  const { storeData } = useSanityData()
+  const { storeData } = UseSanityData()
   
   useEffect(()=>{
     storeData({aboutData, projects})

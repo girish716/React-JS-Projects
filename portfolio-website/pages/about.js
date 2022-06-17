@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import 'animate.css'
 import { client, urlFor } from '../lib/client'
-import { useSanityData } from '../context/SanityData'
+import { UseSanityData } from '../context/SanityData'
 
 const about = () => {
-  const {data} = useSanityData()
+  const {data} = UseSanityData()
   const {aboutData} = data
-  const [myData, SetMyData] = useState(aboutData)
+  const [myData, setMyData] = useState(aboutData)
   const [skills, setSkills] = useState(myData && myData[0] && myData[0].skills || null)
   const [myImage, setMyImage] = useState(myData && myData[0] && myData[0].myImage || null)
   const [about, setAbout] = useState(myData && myData[0] && myData[0].about || null)
@@ -16,7 +16,7 @@ const about = () => {
       if(!myData){
         const query = '*[_type == "about"]'
         const data = await client.fetch(query)
-        SetMyData(data)
+        setMyData(data)
         setSkills(data && data[0] && data[0].skills || null)
         setMyImage(data && data[0] && data[0].myImage|| null)
         setAbout(data && data[0] && data[0].about || null)

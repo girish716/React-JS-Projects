@@ -16,6 +16,6 @@ const SanityDataProvider = ({children}) => {
   )
 }
 
-const useSanityData = () => useContext(Context)
+const UseSanityData = () => useContext(Context)
 
-export { SanityDataProvider, useSanityData }
+export { SanityDataProvider, UseSanityData }

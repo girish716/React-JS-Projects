@@ -3,14 +3,14 @@ import 'animate.css'
 import emailjs from '@emailjs/browser';
 import toast from 'react-hot-toast';
 import { OtherMediums } from '../components';
-import { useSanityData } from '../context/SanityData';
+import { UseSanityData } from '../context/SanityData';
 import { client } from '../lib/client';
 
 const contact = () => {
   const formRef = useRef(null)
-  const {data} = useSanityData()
+  const {data} = UseSanityData()
   const {aboutData} = data
-  const [myData, SetMyData] = useState(aboutData)
+  const [myData, setMyData] = useState(aboutData)
   const [description, setDescription] = useState(myData && myData[0] && myData[0].contact || null)
 
    
@@ -19,7 +19,7 @@ const contact = () => {
       if(!myData){
         const query = '*[_type == "about"]'
         const data = await client.fetch(query)
-        SetMyData(data)
+        setMyData(data)
         setDescription(data && data[0] && data[0].contact || null)
       }
     }

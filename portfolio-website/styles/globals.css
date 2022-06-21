@@ -111,15 +111,19 @@ box-shadow: 0px 0px 22px 1px rgba(153,145,153,1);
 
 .tags-container{
   display: flex;
-  gap: 8px;
+  column-gap: 4px;
+  row-gap: 2px;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  height: 65px;
 }
 
 .tags-container>span{
   background-color: #dae2ec;
   border-radius: 6px;
   width: fit-content;
+  height: fit-content;
   padding: 4px 8px;
   display: flex;
   justify-content: center;

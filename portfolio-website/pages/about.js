@@ -41,7 +41,7 @@ const About = () => {
         </div>
         <div className='skills animate__animated animate__fadeIn'>
           <h2>My Skills</h2>
-          <div className='tags-container'>
+          <div className='tags-container tags-container-about'>
               {skills && skills.map((tag, index)=><span key={index}>{tag}</span>)}
           </div>
         </div>

@@ -12,6 +12,8 @@ const Contact = () => {
   const {aboutData} = data
   const [myData, setMyData] = useState(aboutData)
   const [description, setDescription] = useState(myData && myData[0] && myData[0].contact || null)
+  const [gmail, setGmail] = useState(myData && myData[0] && myData[0].gmail || null)
+  const [linkedin, setLinkedin] = useState(myData && myData[0] && myData[0].linkedin || null)
 
    
   useEffect(()=>{
@@ -21,6 +23,8 @@ const Contact = () => {
         const data = await client.fetch(query)
         setMyData(data)
         setDescription(data && data[0] && data[0].contact || null)
+        setGmail(data && data[0] && data[0].gmail || null)
+        setLinkedin(data && data[0] && data[0].linkedin || null)
       }
     }
     validator()
@@ -82,7 +86,7 @@ const Contact = () => {
           </form>
         </div>
       </div>
-      <OtherMediums />
+      <OtherMediums gmail={gmail} linkedin={linkedin}/>
     </div>
   )
 }

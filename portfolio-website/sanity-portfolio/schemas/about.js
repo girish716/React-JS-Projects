@@ -42,6 +42,16 @@ export default {
             name : 'contact',
             title : 'Contact',
             type : 'string',
+        },
+        {
+            name : 'gmail',
+            title : 'Gmail',
+            type : 'string',
+        },
+        {
+            name : 'linkedin',
+            title : 'Linkedin',
+            type : 'string',
         }
     ]
 }

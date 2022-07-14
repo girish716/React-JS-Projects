@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import logoG from '../assets/logo-g.png'
 import logoSub from '../assets/logo_sub.png'
 import Link from 'next/link'
@@ -10,7 +10,9 @@ import { GoMarkGithub } from 'react-icons/go'
 import { GrMail } from 'react-icons/gr'
 import { AiFillLinkedin } from 'react-icons/ai'
 import { GoProject } from 'react-icons/go'
-import about from '../pages/about'
+import { UseSanityData } from '../context/SanityData';
+import { client } from '../lib/client'
+
 
 const Sidebar = () => {
   const homeRef = useRef(null)
@@ -18,6 +20,25 @@ const Sidebar = () => {
   const contactRef = useRef(null)
   const projectsRef = useRef(null)
   const router = useRouter()
+  const sanityData = UseSanityData()
+  const aboutData = sanityData && sanityData.data && sanityData.data.aboutData
+  const [myData, setMyData] = useState(aboutData)
+  const [gmail, setGmail] = useState(myData && myData[0] && myData[0].gmail || null)
+  const [linkedin, setLinkedin] = useState(myData && myData[0] && myData[0].linkedin || null)
+
+  useEffect(()=>{
+    const validator = async ()=>{
+      if(!myData){
+        const query = '*[_type == "about"]'
+        const data = await client.fetch(query)
+        setMyData(data)
+        setGmail(data && data[0] && data[0].gmail || null)
+        setLinkedin(data && data[0] && data[0].linkedin || null)
+      }
+    }
+    validator()
+  },[])
+
 
   useEffect(()=>{
     let path = router.pathname
@@ -75,8 +96,8 @@ const Sidebar = () => {
         <Link href='/projects'><p ref={projectsRef}  className='icon projects'><GoProject/></p></Link>
       </nav>
       <div className='social-media'>
-        <a href='mailto: girishchandra79179@gmail.com' target='_blank' rel="noreferrer"><p className='icon git'><GrMail /></p></a>
-        <a href='https://www.linkedin.com/in/dama-girish-chandra/' target='_blank' rel="noreferrer"><p className='icon linkedin'><AiFillLinkedin /></p></a>
+        <a href={`mailto: ${gmail}`} target='_blank' rel="noreferrer"><p className='icon git'><GrMail /></p></a>
+        <a href={linkedin} target='_blank' rel="noreferrer"><p className='icon linkedin'><AiFillLinkedin /></p></a>
       </div>
     </div>
   )

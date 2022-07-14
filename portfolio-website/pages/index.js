@@ -10,8 +10,8 @@ import { UseSanityData } from '../context/SanityData'
 
 const Home = ({aboutData, projects}) => {
   const heading = ['G','I','R','I','S','H']
-  const { title } = aboutData
-  const { storeData } = UseSanityData()
+  const { title, gmail, linkedin} = aboutData[0]
+  const { storeData} = UseSanityData()
   
   useEffect(()=>{
     storeData({aboutData, projects})
@@ -57,7 +57,7 @@ const Home = ({aboutData, projects}) => {
         </h1>
         <p className='animate__animated animate__pulse'>{title || 'A Web Developer with a passion for learning new things and a desire to solve issues.'}</p>
         <Link href='/projects'><button className ='button' type='button'>Projects</button></Link>
-        <OtherMediums />
+        <OtherMediums gmail={gmail} linkedin={linkedin} />
       </div>
   )
 }

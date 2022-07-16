@@ -52,6 +52,11 @@ export default {
             name : 'linkedin',
             title : 'Linkedin',
             type : 'string',
+        },
+        {
+            name:'resume',
+            title:'Resume',
+            type : 'file'
         }
     ]
 }

@@ -1,7 +1,8 @@
 import React from 'react'
 import Head from 'next/head'
 import Sidebar from './Sidebar'
-import Footer from './Footer'
+import Resume from './Resume'
+
 
 
 const Layout = ({children}) => {

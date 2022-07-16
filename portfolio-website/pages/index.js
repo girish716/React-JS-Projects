@@ -1,14 +1,13 @@
-import React, {useState, useEffect} from 'react'
-import { Project } from '../components'
+import React, {useEffect} from 'react'
 import Link from 'next/link'
 import { client } from '../lib/client'
-import logoG from '../assets/logo-g.png'
 import 'animate.css'
 import {OtherMediums} from '../components'
 import { UseSanityData } from '../context/SanityData'
+import Resume from '../components/Resume'
 
 
-const Home = ({aboutData, projects}) => {
+const Home = ({aboutData, projects, resumeURL}) => {
   const heading = ['G','I','R','I','S','H']
   const { title, gmail, linkedin} = aboutData[0]
   const { storeData} = UseSanityData()
@@ -58,6 +57,7 @@ const Home = ({aboutData, projects}) => {
         <p className='animate__animated animate__pulse'>{title || 'A Web Developer with a passion for learning new things and a desire to solve issues.'}</p>
         <Link href='/projects'><button className ='button' type='button'>Projects</button></Link>
         <OtherMediums gmail={gmail} linkedin={linkedin} />
+        <Resume url={resumeURL[0].resumeURL}/>
       </div>
   )
 }
@@ -65,11 +65,13 @@ const Home = ({aboutData, projects}) => {
 export const getStaticProps = async()=>{
   const query1 = '*[_type == "about"]'
   const query2 = '*[_type == "project"]'
+  const query3 = '*[_type == "about"] { "resumeURL": resume.asset->url }'
   const aboutData = await client.fetch(query1);
   const projects = await client.fetch(query2);
+  const resumeURL = await client.fetch(query3);
 
   return {
-    props : {aboutData, projects}
+    props : {aboutData, projects, resumeURL}
   }
 }
 

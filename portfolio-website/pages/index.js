@@ -14,6 +14,11 @@ const Home = ({aboutData, projects, resumeURL}) => {
   
   useEffect(()=>{
     storeData({aboutData, projects})
+    
+    // Trigger snake effect after page load with a delay
+    setTimeout(() => {
+      triggerSnakeEffect();
+    }, 1500); // Wait 1.5 seconds after page load
   },[])
 
   const hoverHandler = (e)=>{
@@ -26,13 +31,31 @@ const Home = ({aboutData, projects, resumeURL}) => {
         e.currentTarget.style.color = '#181818'
   }
 
+  const triggerSnakeEffect = () => {
+    const spans = document.querySelectorAll('.home-container h1 span:not(.space)');
+    spans.forEach((span, index) => {
+      setTimeout(() => {
+        span.style.transform = 'translateY(-10px)';
+        span.style.color = '#f55139';
+        setTimeout(() => {
+          span.style.transform = 'translateY(0)';
+          span.style.color = '#181818';
+        }, 200);
+      }, index * 100);
+    });
+  }
+
   const Span = ({char, idx})=>{
     return (
       <span 
           onMouseEnter={hoverHandler} 
           onMouseLeave={leaveHandler}
-          className='animate__animated animate__delay-0.2s' 
+          className='animate__animated animate__delay-0.2s letter-span' 
           key = {idx}
+          style={{
+            transition: 'transform 0.3s ease, color 0.3s ease',
+            display: 'inline-block'
+          }}
           >
           {char}
       </span>
@@ -41,14 +64,14 @@ const Home = ({aboutData, projects, resumeURL}) => {
 
   return (
       <div className='home-container'>
-        <h1 className='animate__animated animate__bounceIn'>
+        <h1 className='animate__animated animate__bounceIn' onMouseEnter={triggerSnakeEffect}>
         <Span char={'H'} idx={1} />
         <Span char={'I'} idx={2}/>
-        <span>&nbsp;</span>
+        <span className="space">&nbsp;</span>
         <Span char={'I\''} idx={3}/>
         <Span char={'A'} idx={4}/>
         <Span char={'M'} idx={5}/>
-        <span>&nbsp;</span>
+        <span className="space">&nbsp;</span>
         {heading.map((c,i)=>
           <Span char={c} key={i+6} idx={i+6}/>
           )

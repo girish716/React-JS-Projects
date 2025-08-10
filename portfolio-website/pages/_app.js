@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import '../styles/chatbot.css'
+import '../styles/security-awareness.css'
 import { Layout } from '../components'
 import { Toaster } from 'react-hot-toast'
 import { useEffect, useState } from 'react'

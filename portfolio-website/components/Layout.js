@@ -4,6 +4,7 @@ import Sidebar from './Sidebar'
 import Resume from './Resume'
 import ChatBot from './ChatBot/ChatBot'
 import ChatFloatButton from './ChatBot/ChatFloatButton'
+import SecurityAwareness from './SecurityAwareness'
 
 
 
@@ -36,6 +37,9 @@ const Layout = ({children}) => {
         isOpen={isChatOpen}
         onClose={handleChatClose}
       />
+      
+      {/* Security Awareness Component */}
+      <SecurityAwareness />
     </div>
   )
 }

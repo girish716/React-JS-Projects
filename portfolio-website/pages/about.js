@@ -33,9 +33,17 @@ const About = () => {
           <div>
             <h2>Get to know me!</h2>
             <img className='mobile-image' src={myImage && urlFor(myImage)} width='200px'/>
-            <p className='animate__animated animate__pulse'>{about && about[0] || "I'm very ambitious web developer looking for a position in a established IT firm. My background in web development stems from my prior job as a Software Engineer, where I had the opportunity to deal with Java Script and HTML."}</p>
-            <p className='animate__animated animate__pulse'>{about && about[1] || "I'm quiet, confident, naturally curious, and always working to improve my skills one problem at a time."}</p>
-            <p className='animate__animated animate__pulse'>{about && about[2] || "I'm looking for a job where I can contribute, learn, and grow. Please do not hesitate to contact me if you have a good opportunity that matches my talents and expertise."}</p>
+            {about && Array.isArray(about) ? (
+              about.map((paragraph, index) => (
+                <p key={index} className='animate__animated animate__pulse'>{paragraph}</p>
+              ))
+            ) : (
+              <>
+                <p className='animate__animated animate__pulse'>I'm a Software Engineer with experience in network security and full-stack web development. I enjoy building secure, user-friendly applications and exploring how emerging technologies like AI can enhance development practices.</p>
+                <p className='animate__animated animate__pulse'>My skills include modern web frameworks, security protocols, and database management. I focus on creating responsive applications while maintaining strong security measures and exploring innovative solutions.</p>
+                <p className='animate__animated animate__pulse'>I believe in continuous learning, especially in cybersecurity and AI technologies. I'm excited about contributing to projects that combine solid technical fundamentals with innovative approaches.</p>
+              </>
+            )}
           </div>
           <img className='browser-image' src={myImage && urlFor(myImage)} width='200px'/>
         </div>

@@ -556,6 +556,7 @@
   .chatbot-container {
     width: 100vw;
     height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
     border-radius: 0;
     position: fixed;
     top: 0;
@@ -565,6 +566,7 @@
     z-index: 1003;
     max-width: none;
     max-height: none;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
   
   /* Hide resume button when chatbot is open on mobile */
@@ -573,12 +575,16 @@
   }
   
   .chat-messages {
-    max-height: calc(100vh - 140px);
+    max-height: calc(100dvh - 160px);
+    max-height: calc(100vh - 160px);
     padding: 10px;
+    padding-bottom: 20px;
   }
   
   .chat-input-wrapper {
     padding: 12px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    margin-bottom: 20px;
   }
   
   .chat-input {

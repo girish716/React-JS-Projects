@@ -18,8 +18,9 @@ Open [https://www.girishdama.com](https://www.girishdama.com) with your browser 
      ```bash
      cp .env.example .env
      ```
-   - Add your actual API keys and configuration values to the `.env` file
-   - Get your Google Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
+   - Add your actual API keys and configuration values to the `.env` file:
+     - **Sanity Token**: Get your Sanity token from [Sanity.io](https://sanity.io) dashboard → API → Tokens
+     - **Gemini API Key**: Get your Google Gemini API key from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
 4. Run the development server:
    ```bash

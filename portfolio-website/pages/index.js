@@ -1,10 +1,15 @@
 import React, {useEffect} from 'react'
 import Link from 'next/link'
 import { client } from '../lib/client'
-import 'animate.css'
 import {OtherMediums} from '../components'
 import { UseSanityData } from '../context/SanityData'
 import Resume from '../components/Resume'
+import dynamic from 'next/dynamic'
+
+// Dynamically import animate.css only when needed
+if (typeof window !== 'undefined') {
+  import('animate.css');
+}
 
 
 const Home = ({aboutData, projects, resumeURL}) => {
@@ -81,20 +86,40 @@ const Home = ({aboutData, projects, resumeURL}) => {
         <Link href='/projects'><button className ='button' type='button'>Projects</button></Link>
         <OtherMediums gmail={gmail} linkedin={linkedin} />
         <Resume url={resumeURL[0].resumeURL}/>
+
       </div>
   )
 }
 
 export const getStaticProps = async()=>{
-  const query1 = '*[_type == "about"]'
-  const query2 = '*[_type == "project"]'
-  const query3 = '*[_type == "about"] { "resumeURL": resume.asset->url }'
-  const aboutData = await client.fetch(query1);
-  const projects = await client.fetch(query2);
-  const resumeURL = await client.fetch(query3);
-
-  return {
-    props : {aboutData, projects, resumeURL}
+  // Optimized single query to fetch all data at once
+  const optimizedQuery = `{
+    "aboutData": *[_type == "about"],
+    "projects": *[_type == "project"],
+    "resumeURL": *[_type == "about"] { "resumeURL": resume.asset->url }
+  }`
+  
+  try {
+    const data = await client.fetch(optimizedQuery);
+    
+    return {
+      props: {
+        aboutData: data.aboutData,
+        projects: data.projects,
+        resumeURL: data.resumeURL
+      },
+      // Add revalidation for better performance
+      revalidate: 3600 // Revalidate every hour
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      props: {
+        aboutData: [],
+        projects: [],
+        resumeURL: []
+      }
+    }
   }
 }
 

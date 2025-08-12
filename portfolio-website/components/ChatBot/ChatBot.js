@@ -92,6 +92,8 @@ const ChatBot = ({ isOpen, onClose }) => {
       
       if (error.message.includes('rate limit') || error.message.includes('quota')) {
         errorMessage = "I'm getting a lot of questions right now! Please try again in a moment.";
+      } else if (error.message.includes('Invalid request') || error.message.includes('professional background')) {
+        errorMessage = "🛡️ Hey there! I'm Virtual Girish, and I'm here to chat about my professional journey as a Software Engineer at Cisco Systems! I'd love to tell you about my technical skills, projects, experience, or how to get in touch. What would you like to know about my work? 😊";
       }
 
       const errorBotMessage = {
@@ -102,7 +104,7 @@ const ChatBot = ({ isOpen, onClose }) => {
       };
 
       setMessages(prev => [...prev, errorBotMessage]);
-      setError(error.message);
+      setError(null); // Clear error state for security messages
 
       // Focus input after error response too
       setTimeout(() => {

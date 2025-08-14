@@ -18,6 +18,7 @@ const Sidebar = () => {
   const homeRef = useRef(null)
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
+  const [isMobile, setIsMobile] = useState(false)
   const projectsRef = useRef(null)
   const router = useRouter()
   const sanityData = UseSanityData()
@@ -27,6 +28,18 @@ const Sidebar = () => {
   const [linkedin, setLinkedin] = useState(myData && myData[0] && myData[0].linkedin || null)
   const [showNotification, setShowNotification] = useState(false)
   const [shouldHighlight, setShouldHighlight] = useState(false)
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(()=>{
     const validator = async ()=>{
@@ -128,8 +141,8 @@ const Sidebar = () => {
               <TiContacts />
             </p>
           </Link>
-          {/* Contact tooltip - AI chatbot style */}
-          {showNotification && (
+          {/* Desktop only tooltip - AI chatbot style */}
+          {showNotification && !isMobile && (
             <div 
               style={{
                 position: 'absolute',

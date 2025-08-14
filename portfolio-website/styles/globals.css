@@ -9,6 +9,22 @@ body, #__next {
     background-color: #f1f5f8;
 }
 
+/* Pulse animation for mobile contact badge */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 h1{
   letter-spacing: 3px;
   font-weight: 800;

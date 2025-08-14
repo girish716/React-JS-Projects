@@ -16,6 +16,65 @@
   pointer-events: all;
 }
 
+/* Fix: Disable pointer events when chatbot is minimized to allow clicking on rest of screen */
+.chatbot-overlay.open.minimized {
+  pointer-events: none;
+}
+
+.chatbot-overlay.open.minimized .chatbot-container {
+  pointer-events: auto;
+}
+
+/* Mobile full-width send button - similar to header design */
+@media (max-width: 768px) {
+  /* Hide desktop button on mobile */
+  .chat-send-btn {
+    display: none !important;
+  }
+  
+  /* Full-width mobile send button */
+  .mobile-send-btn-fullwidth {
+    width: 100% !important;
+    height: 48px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    color: white !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    margin: 6px 0 8px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+    touch-action: manipulation !important;
+    -webkit-tap-highlight-color: transparent !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .mobile-send-btn-fullwidth:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+  }
+  
+  .mobile-send-btn-fullwidth:active {
+    transform: translateY(0) !important;
+    background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%) !important;
+  }
+  
+  .mobile-send-btn-fullwidth:disabled {
+    opacity: 0.6 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    background: #ccc !important;
+  }
+}
+
 /* Main Chatbot Container */
 .chatbot-container {
   width: 380px;

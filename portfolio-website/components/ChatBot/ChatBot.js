@@ -132,7 +132,7 @@ const ChatBot = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className={`chatbot-overlay ${isOpen ? 'open' : ''}`}>
+    <div className={`chatbot-overlay ${isOpen ? 'open' : ''} ${isMinimized ? 'minimized' : ''}`}>
       <div className={`chatbot-container ${isMinimized ? 'minimized' : ''}`}>
         <ChatHeader 
           onClose={handleClose}
